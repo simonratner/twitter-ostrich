@@ -130,7 +130,7 @@ class CommandHandler(runtime: RuntimeEnvironment, statsCollection: StatsCollecti
   }
 
   private def getThreadStacks(): Map[String, Map[String, Map[String, Any]]] = {
-    val stacks = JavaConversions.asScalaMap(Thread.getAllStackTraces()).map { case (thread, stack) =>
+    val stacks = JavaConversions.mapAsScalaMap(Thread.getAllStackTraces()).map { case (thread, stack) =>
       (thread.getId().toString, immutable.Map("thread" -> thread.getName(),
                                               "daemon" -> thread.isDaemon(),
                                               "state" -> thread.getState(),
