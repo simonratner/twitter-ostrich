@@ -105,7 +105,7 @@ object StatsCollectionSpec extends Specification {
 
       "report" in {
         var x = 0
-        collection.time("hundred") { Thread.sleep(10) }
+        collection.time("hundred") { Thread.sleep(100) }
         val timings = collection.getMetrics()
         timings.keys.toList mustEqual List("hundred_msec")
         timings("hundred_msec").count mustEqual 1
@@ -114,14 +114,14 @@ object StatsCollectionSpec extends Specification {
       }
 
       "time future" in {
-        val future = Future({ Thread.sleep(10); 100 })
+        val future = Future({ Thread.sleep(100); 100 })
 
         collection.timeFutureMillis("latency")(future)() mustEqual 100
 
         val timings = collection.getMetrics()
         timings("latency_msec").count mustEqual 1
         timings("latency_msec").minimum must be_>(0)
-        timings("latency_msec").minimum must be_>(0)
+        timings("latency_msec").maximum must be_>(0)
       }
 
       "average of 0" in {

@@ -9,14 +9,14 @@ class OstrichProject(info: ProjectInfo) extends StandardLibraryProject(info)
   with PublishSourcesAndJavadocs
   with PublishSite
 {
-  val utilVersion = "2.9.0-1_1.11.2-SNAPSHOT"
+  val utilVersion = "2.9.1_1.11.2-SNAPSHOT"
   val util = "com.twitter" % "util-core" % utilVersion
   val eval = "com.twitter" % "util-eval" % utilVersion
   val logging = "com.twitter" % "util-logging" % utilVersion
   val json = "com.twitter" % "json_2.8.1" % "2.1.6"
 
   // for tests:
-  val specs = "org.scala-tools.testing" % "specs_2.9.0-1" % "1.6.8" % "test"
+  val specs = "org.scala-tools.testing" % "specs_2.9.1" % "1.6.9" % "test"
   val cglib = "cglib" % "cglib" % "2.1_3" % "test"
   val asm = "asm" % "asm" % "1.5.3" % "test"
   val objenesis = "org.objenesis" % "objenesis" % "1.1" % "test"
